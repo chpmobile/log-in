@@ -1,0 +1,38 @@
+<?php
+    mysql_connect("localhost", "myusername", "mypassword");
+    mysql_select_db("companyDB");
+
+    function user_login($username, $password)
+
+{
+    ob_start();
+
+    $username = mysql_real_escape_string($username);
+    $password = md5($password);
+
+    $sql = "select * from users where username='$username' and password ='$password' LIMIT 1";
+    $result = mysql_query($sql) or die('Please change your mysql query !');
+
+    if(mysql_num_rows($result) > 0)
+    {       
+        $_SESSION['username'] = $username;
+        $_SESSION['loggedin'] = true;
+
+        $row = mysql_fetch_row($result);
+        $access_level = $row[4];
+        $_SESSION['accessLevel'] = $access_level;
+
+        while (ob_get_status()) 
+        {
+            ob_end_clean();
+        }
+
+        header("Location: /index.php");
+
+    }
+    else
+    {
+
+    }
+}
+?>
