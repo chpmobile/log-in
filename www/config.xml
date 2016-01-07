@@ -12,12 +12,14 @@
         A sample application that counts the occurances of lifecycle events.
     </description>
 
-    <author href="worcester.ac.uk" email="c.bowers@worc.ac.uk">
-        WBS Computing
+    <author href="worcester.ac.uk" email="papc2_12@uni.worc.ac.uk">
+        charis papaioannou
     </author>
 <gap:platform name="android" />
-
-    <preference name="permissions"                value="none"/>   
-	
-	<access origin="*"/>
+ <platform name="android">
+              <icon src="icon/logo.png" density="ldpi" />
+              <icon src="icon/logo.png" density="mdpi" />
+              <icon src="icon/logo.png" density="hdpi" />
+              <icon src="icon/logo.png" density="xhdpi" />
+     </platform>
 </widget>
